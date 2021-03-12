@@ -6,9 +6,9 @@ use Mix.Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :events, Events.Repo,
-  username: "events",
+  username: "events_two",
   password: "aiNg8tuSee3k",
-  database: "events_prod",
+  database: "events_two_prod",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
