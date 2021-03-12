@@ -3,8 +3,11 @@ defmodule Events.Repo.Migrations.CreatePosts do
 
   def change do
     create table(:posts) do
-      add :body, :text
+      add :name, :text, null: false
+      add :date, :utc_datetime, null: false
+      add :description, :text, null: false
       add :user_id, references(:users), null: false
+      
       timestamps()
     end
 
