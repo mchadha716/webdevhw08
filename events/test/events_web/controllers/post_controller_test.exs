@@ -3,9 +3,9 @@ defmodule EventsWeb.PostControllerTest do
 
   alias Events.Posts
 
-  @create_attrs %{body: "some body"}
-  @update_attrs %{body: "some updated body"}
-  @invalid_attrs %{body: nil}
+  @create_attrs %{date: "some date", description: "some description", name: "some name"}
+  @update_attrs %{date: "some updated date", description: "some updated description", name: "some updated name"}
+  @invalid_attrs %{date: nil, description: nil, name: nil}
 
   def fixture(:post) do
     {:ok, post} = Posts.create_post(@create_attrs)
@@ -60,7 +60,7 @@ defmodule EventsWeb.PostControllerTest do
       assert redirected_to(conn) == Routes.post_path(conn, :show, post)
 
       conn = get(conn, Routes.post_path(conn, :show, post))
-      assert html_response(conn, 200) =~ "some updated body"
+      assert html_response(conn, 200) =~ "some updated date"
     end
 
     test "renders errors when data is invalid", %{conn: conn, post: post} do
