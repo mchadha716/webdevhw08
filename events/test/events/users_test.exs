@@ -1,3 +1,4 @@
+
 defmodule Events.UsersTest do
   use Events.DataCase
 
