@@ -1,19 +1,26 @@
 <div class="row">
-  <div class="col">
-    <h1>Events Feed</h1>
+  <div class="column">
+     <h1>Event Feed</h1>
+     <%= if have_current_user?(@conn) do %>
+       <p><%= link "New Event", to: Routes.post_path(@conn, :new) %></p>
+     <% end %>
   </div>
 </div>
 
-<div clas="row">
+<div class="row">
   <%= for post <- @posts do %>
-    <div class="col-sm-4 card">
-      <!--
-      <img class="card-img-top" src="" alt="">
-      -->
-      <div class="card-body">
-        <p class="card-text"><%= post.body %></p>
-        <%= link "view", to: Routes.post_path(@conn, :show, post) %>
-      </div>
+    <div class="column-sm4 card">
+    <div class="card-body">
+	<h5 class="card-title"><%= post.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= post.date %></h6>
+	<p class="card-text"><%= post.description %></p>
+	<p>
+	  RSVPs: <%= post.score %>
+	  yes;
+          no;
+        </p>
+	<%= link "view", to: Routes.post_path(@conn, :show, post) %>
     </div>
+  </div>
   <% end %>
 </div>
