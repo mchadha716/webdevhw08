@@ -6,9 +6,9 @@ defmodule Events.PostsTest do
   describe "posts" do
     alias Events.Posts.Post
 
-    @valid_attrs %{body: "some body"}
-    @update_attrs %{body: "some updated body"}
-    @invalid_attrs %{body: nil}
+    @valid_attrs %{date: "some date", description: "some description", name: "some name"}
+    @update_attrs %{date: "some updated date", description: "some updated description", name: "some updated name"}
+    @invalid_attrs %{date: nil, description: nil, name: nil}
 
     def post_fixture(attrs \\ %{}) do
       {:ok, post} =
@@ -31,7 +31,9 @@ defmodule Events.PostsTest do
 
     test "create_post/1 with valid data creates a post" do
       assert {:ok, %Post{} = post} = Posts.create_post(@valid_attrs)
-      assert post.body == "some body"
+      assert post.date == "some date"
+      assert post.description == "some description"
+      assert post.name == "some name"
     end
 
     test "create_post/1 with invalid data returns error changeset" do
@@ -41,7 +43,9 @@ defmodule Events.PostsTest do
     test "update_post/2 with valid data updates the post" do
       post = post_fixture()
       assert {:ok, %Post{} = post} = Posts.update_post(post, @update_attrs)
-      assert post.body == "some updated body"
+      assert post.date == "some updated date"
+      assert post.description == "some updated description"
+      assert post.name == "some updated name"
     end
 
     test "update_post/2 with invalid data returns error changeset" do
