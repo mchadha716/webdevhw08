@@ -2,9 +2,9 @@ use Mix.Config
 
 # Configure your database
 config :events, Events.Repo,
-  username: "events_two",
-  password: "woojohKaeth8",
-  database: "events_two_prod",
+  username: "events",
+  password: "aiNg8tuSee3k",
+  database: "events_prod",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
