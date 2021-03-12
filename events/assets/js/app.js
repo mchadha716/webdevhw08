@@ -16,5 +16,5 @@ import "phoenix_html"
 
 import flatpickr from "flatpickr"
 
-const flatp = flatpickr("#pickr", { enableTime true });
+const flatp = flatpickr("#pickr", { enableTime: true });
 console.log(flatp);
